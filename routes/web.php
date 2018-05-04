@@ -12,4 +12,5 @@
 */
 
 Route::get('/', 'UserController@Index');
+
 Route::get('/table', 'UserController@Table');
