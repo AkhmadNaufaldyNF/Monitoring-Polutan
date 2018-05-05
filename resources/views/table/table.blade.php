@@ -30,36 +30,27 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Tanggal/Jam</th>
                   <th>Kadar</th>
                   <th>Status</th>
+                  <th>Tanggal/Jam</th>
                 </tr>
                 </thead>
                 <tbody>
+                @foreach ($monitoring as $indexKey => $Monitoring)
                 <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
+                  <td>{{ $indexKey+1 }}</td>
+                  <td>{{ $Monitoring -> kadars }}</td>
+                  <td>
+                    @if ($Monitoring -> status)
+                      Tidak Aman
+                    @else
+                      Aman
+                    @endif
                   </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
+                  <td>{{ $Monitoring -> created_at}}</td>
                 </tr>
-                <tr>
-                  <td>Trident</td>
-                  <td>Internet
-                    Explorer 4.0
-                  </td>
-                  <td>Win 95+</td>
-                  <td> 4</td>
-                </tr>
-                <tfoot>
-                <tr>
-                  <th>No</th>
-                  <th>Tanggal/Jam</th>
-                  <th>Kadar</th>
-                  <th>Status</th>
-                </tr>
-                </tfoot>
+                @endforeach
+              </tbody>
               </table>
             </div>
             <!-- /.box-body -->

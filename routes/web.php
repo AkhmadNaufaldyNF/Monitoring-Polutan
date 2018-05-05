@@ -13,4 +13,4 @@
 
 Route::get('/', 'UserController@Index');
 
-Route::get('/table', 'UserController@Table');
+Route::get('/table', 'MonitoringController@Index');
