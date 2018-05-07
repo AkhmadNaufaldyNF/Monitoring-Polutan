@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', 'UserController@Index');
+Route::GET('/', 'UserController@Index');
 
-Route::get('/table', 'MonitoringController@Index');
+Route::GET('/table', 'MonitoringController@Index');
+
+Route::GET('update/{Kadar}', 'MonitoringController@Update');

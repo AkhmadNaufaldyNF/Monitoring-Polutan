@@ -41,7 +41,7 @@
                   <td>{{ $indexKey+1 }}</td>
                   <td>{{ $Monitoring -> kadars }}</td>
                   <td>
-                    @if ($Monitoring -> status)
+                    @if ($Monitoring -> kadars>=1500)
                       Tidak Aman
                     @else
                       Aman

@@ -14,4 +14,11 @@ class MonitoringController extends Controller
 
 		return view('table.table') -> with('monitoring',$monitoring);
 	}
+
+	public function update($Kadar)
+	{
+		$update = new Monitoring;
+		$update -> kadars = $Kadar;
+		$update -> save();
+	}
 }
