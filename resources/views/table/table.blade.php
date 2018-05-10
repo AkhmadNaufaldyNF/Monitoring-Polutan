@@ -30,7 +30,8 @@
                   <th>No</th>
                   <th>Kadar</th>
                   <th>Status</th>
-                  <th>Tanggal/Jam</th>
+                  <th>Tanggal</th>
+                  <th>Jam</th>
                 </tr>
               </thead>
               <tbody>
@@ -45,7 +46,8 @@
                     Aman
                     @endif
                   </td>
-                  <td>{{ $Monitoring -> created_at}}</td>
+                  <td>{{ Waktu::tanggal($Monitoring -> created_at) }}</td>
+                  <td>{{ Waktu::jam ($Monitoring -> created_at)}}</td>
                 </tr>
                 @endforeach
               </tbody>
