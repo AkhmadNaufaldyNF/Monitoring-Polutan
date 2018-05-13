@@ -8,3 +8,13 @@
 .content-custom{
 	margin-top: 15%;
 }
+
+.row-custom{
+	margin-top: 50px;
+}
+
+.button-custom{
+	float: right;
+	margin-top: 150px;
+	margin-right: 15px;
+}

@@ -57,6 +57,34 @@
     <script>
       $.widget.bridge('uibutton', $.ui.button);
     </script>
+
+    
+   {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+ --}}
+{{--     <script>
+        const CHART = document.getElementById("myPieChart");
+        Chart.defaults.scale.ticks.beginAtZero = true;
+
+        let myPieChart = new Chart(CHART, {
+          type: 'pie',
+          data: {
+            labels: ['aasd', 'asdgdfgd', 'fghgf', 'iewruiu'],
+            datasets: [
+            {
+              label: 'Points',
+              backgroundColor: ['#f1c40f', '#e67e22', '#16a08', '#2980b9']
+              data: [10, 20, 30, 40]
+            }
+          ]
+        },
+        options: {
+          animation: {
+            animateScale: true;
+          }
+        }
+      });
+      </script> --}} 
+
     <script src="{{url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{url('assets/adminlte/bower_components/raphael/raphael.min.js')}}"></script>
     <script src="{{url('assets/adminlte/bower_components/morris.js/morris.min.js')}}"></script>
