@@ -15,6 +15,6 @@ Route::GET('/', 'UserController@Index');
 
 Route::GET('/table', 'MonitoringController@Index');
 
-Route::GET('/statistik', 'UserController@Statistik');
+Route::GET('/statistik', 'MonitoringController@Chart');
 
 Route::GET('update/{Kadar}', 'MonitoringController@Update');

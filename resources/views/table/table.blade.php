@@ -22,7 +22,6 @@
           <div class="box-header">
             <h3 class="box-title">Polutan Table</h3>
           </div>
-          <!-- /.box-header -->
           <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
               <thead>
