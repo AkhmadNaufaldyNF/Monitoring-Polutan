@@ -11,10 +11,6 @@ class UserController extends Controller
 		return view('admin.dashboard');
 	}
 
-	// public function Statistik()
-	// {
-	// 	return view('statistik.statistik');
-	// }
 
 	public function Table()
 	{

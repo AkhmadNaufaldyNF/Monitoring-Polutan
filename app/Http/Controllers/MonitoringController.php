@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Monitoring;
 use Illuminate\Http\Request;
 
-use Waktu;
+use Carbon\Carbon;
 
+use Waktu;
 
 class MonitoringController extends Controller
 {
@@ -25,18 +26,34 @@ class MonitoringController extends Controller
 
 	public function Chart()
 	{
-		// for ($i=1; $i <= 31 ; $i++){
-		// 	$chart[$i] = (Monitoring::where('kadars', '')
-		// 		->whereDay('created_at', $i)
-		// 		->get());
-		// }
-
 		for ($i=1; $i <= 12 ; $i++){
 			$chart[$i] = Monitoring::whereMonth('created_at', $i)
 			->avg('kadars');
-		}
-
-		// dd($chart);
+		}		
 		return view('statistik.statistik', ['data' => $chart]);
 	}
+
+	public function FilterData(Request $request){
+		$Filter = Monitoring::all();
+		$Filter = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
+			->whereDate('created_at', '<=', $request->tanggalakhir);
+
+		if ($request->statuskadar != 'status') {
+			$Filter = $Filter->where('kadars', $request->statuskadar);
+		}		
+
+		dd ($Filter);
+		return  view('table.table', ['data' => $Filter->get(), 'request' => $request]);
+	}
+		// if ($request->)		
+
+	// 	// if ($request->statuskadar != '01012011') {
+	// 	// 	$Filter = $Filter->where('status', $request->statuskadar);
+	// 	// }
+	// 	// // if ($request->statusparkir != '01012011') {
+	// 	// // 	$Filter = $Filter->where('status', $request->statusparkir);
+	// 	// // }
+	// 	// $Kadar = $Filter->max('id');
+	// 	return view('table.table', ['data' => $Filter->get(), 'request' => $request]);
+	// }
 }

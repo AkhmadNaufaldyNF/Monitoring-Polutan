@@ -35,7 +35,6 @@
     <aside class="main-sidebar">
       <section class="sidebar">
         <ul class="sidebar-menu" data-widget="tree">
-          <li class="header">MAIN NAVIGATION</li>
           <li class="active treeview">
             <li><a href="/"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
             <li><a href="/table"><i class="fa fa-table"></i> <span>Table</span></a></li>
@@ -43,13 +42,6 @@
         </section>
       </aside>
       @yield('content')
-      <footer class="main-footer">
-        <div class="pull-right hidden-xs">
-          <b>Version</b> 2.4.0
-        </div>
-        <strong>Copyright &copy; 2014-2016 <a href="https://adminlte.io">Almsaeed Studio</a>.</strong> All rights
-        reserved.
-      </footer>
       <div class="control-sidebar-bg"></div>
     </div>
     <script src="{{url('assets/adminlte/bower_components/jquery/dist/jquery.min.js')}}"></script>
@@ -92,6 +84,28 @@
           'autoWidth'   : false
         })
       })
+    </script>
+
+    <script>
+      $('#example1').DataTable( {
+        language: {
+          "sProcessing":   "Sedang memproses...",
+          "sLengthMenu":   "Tampilkan _MENU_ Data",
+          "sZeroRecords":  "Tidak ditemukan data yang sesuai",
+          "sInfo":         "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+          "sInfoEmpty":    "Menampilkan 0 sampai 0 dari 0 data",
+          "sInfoFiltered": "(disaring dari _MAX_ entri keseluruhan)",
+          "sInfoPostFix":  "",
+          "sSearch":       "Cari:",
+          "sUrl":          "",
+          "oPaginate": {
+            "sFirst":    "Pertama",
+            "sPrevious": "Sebelumnya",
+            "sNext":     "Selanjutnya",
+            "sLast":     "Terakhir"
+          }
+        }
+      } );
     </script>
   </body>
   </html>

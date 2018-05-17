@@ -6,13 +6,7 @@
   <section class="content-header">
     <h1>
       Data Tables
-      <small>advanced tables</small>
     </h1>
-    <ol class="breadcrumb">
-      <li><a href="/"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="/table">Tables</a></li>
-      <li class="active">Data tables</li>
-    </ol>
   </section>
 
   <section class="content">
@@ -20,7 +14,41 @@
       <div class="col-xs-12">
         <div class="box">
           <div class="box-header">
-            <h3 class="box-title">Polutan Table</h3>
+            <form action="" method="post">
+              {{ csrf_field() }}
+              <div class="col-md-2 text-center text-center">
+                <label>Tanggal Pertama</label>
+                <input type="date" name="tanggalawal" value="" class="form-control form-control-h34px">
+              </div>
+              <div class="col-md-2 text-center">
+                <label>Tanggal Terakhir</label>
+                <input type="date" name="tanggalakhir" value="" class="form-control form-control-h34px">
+              </div>
+              <div class="col-md-2 text-center">
+                <label>Status</label>
+                <select class="form-control" name="statuskadar">
+                  <option value="status">Semua</option>
+                  
+                  <option value="0" {{ isset($request) && $request->statuskadar == '0' ? 'selected' : '' }}>Aman</option>
+                  <option value="1" {{ isset($request) && $request->statuskadar == '1' ? 'selected' : '' }}>Tidak Aman</option>
+
+                  {{-- @for ($i=1; $i <= 'status'; $i++)
+                  <option value="{{ $i }}" {{ isset($request) && $request->statuskadar == $i ? 'selected' : '' }}>{{ $i }}</option>
+                  @endfor --}}
+                  {{-- <option value="01012011">Semua</option>
+                  @for ($i=1; $i <= 'kadars'; $i++)
+                  <option value="{{ $i }}" {{ isset($request) && $request->statuskadar == $i ? 'selected' : '' }}>{{ $i }}</option>
+                  @endfor --}}
+                </select>
+              </div>
+              <div style="padding-top:25px">
+                <div class="col-md-2 text-center">
+                  <button type="submit" class="btn btn-primary">
+                    <span class="fa fa-search"></span> | Filter
+                  </button>
+                </div>
+              </div>
+            </form>
           </div>
           <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
