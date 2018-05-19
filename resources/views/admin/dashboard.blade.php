@@ -1,23 +1,32 @@
 @extends('admin.adminlte')
 
 @section('content')
+
+<script src="{{url('assets/adminlte/dist/js/chartJs/Chart.min.js')}}"></script>
+
 <div class="content-wrapper">
   <section class="content">
     <div class="row">
       <section class="col-lg-10 col-lg-offset-1 connectedSortable">
         <div class="nav-tabs-custom box1">
-          <ul class="nav nav-tabs tab-content text-center">
+          <ul class="nav nav-tabs tab-content text-center text-box">
             <h4><b>MONITORING</b></h4>
           </ul>
+          <div class="col-sm-3">
+            <li><= 100 ppm (Aman)</li>
+            <li>asda</li>
+            <li>asda</li>
+          </div>
           <div class="content-custom">
-            <h1 class="text-h1">KADAR CO2 : ..... PPM</h1>
-            <h1 class="text-h1">STATUS : ........</h1>
-            <div>
-              <a class="btn btn-primary button-custom" href="/statistik" role="button">Statistik</a>              
+            <h2 class="text-h1">KADAR CO2 : .......PPM</h2>
+            <h2 class="text-h1">STATUS : ........</h2>
+            <div class="lok">
+              <h4><i class="fa fa-map-marker"></i>&nbsp;<b>Lokasi Penelitian 1</b></h4>
+              <h4><i class="fa fa-map-marker"></i>&nbsp;<b>Lokasi Penelitian 2</b></h4>              
             </div>
-          </div>   
-        </div>                                                                                           
-      </section>
+          </div>                                                                                           
+        </section>
+      </div> 
     </div>
   </section>
 </div>

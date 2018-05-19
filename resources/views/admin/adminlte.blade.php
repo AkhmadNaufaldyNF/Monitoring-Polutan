@@ -37,6 +37,7 @@
         <ul class="sidebar-menu" data-widget="tree">
           <li class="active treeview">
             <li><a href="/"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
+            <li><a href="/statistik"><i class="fa fa-bar-chart"></i> <span>Chart</span></a></li>
             <li><a href="/table"><i class="fa fa-table"></i> <span>Table</span></a></li>
           </ul>
         </section>

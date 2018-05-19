@@ -34,17 +34,19 @@ class MonitoringController extends Controller
 	}
 
 	public function FilterData(Request $request){
-		$Filter = Monitoring::all();
-		$Filter = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
-			->whereDate('created_at', '<=', $request->tanggalakhir);
+
+		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
+								->whereDate('created_at', '<=', $request->tanggalakhir);
 
 		if ($request->statuskadar != 'status') {
-			$Filter = $Filter->where('kadars', $request->statuskadar);
+			$monitoring = $monitoring->where('kadars', $request->statuskadar);
 		}		
 
-		dd ($Filter);
-		return  view('table.table', ['data' => $Filter->get(), 'request' => $request]);
+		// dd ($monitoring);
+		return  view('table.table', ['monitoring' => $monitoring->get(), 'request' => $request]);
 	}
+
+
 		// if ($request->)		
 
 	// 	// if ($request->statuskadar != '01012011') {

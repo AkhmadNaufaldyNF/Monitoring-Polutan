@@ -26,19 +26,10 @@
               </div>
               <div class="col-md-2 text-center">
                 <label>Status</label>
-                <select class="form-control" name="statuskadar">
+                <select class="form-control" name="Kadar">
                   <option value="status">Semua</option>
-                  
-                  <option value="0" {{ isset($request) && $request->statuskadar == '0' ? 'selected' : '' }}>Aman</option>
-                  <option value="1" {{ isset($request) && $request->statuskadar == '1' ? 'selected' : '' }}>Tidak Aman</option>
-
-                  {{-- @for ($i=1; $i <= 'status'; $i++)
-                  <option value="{{ $i }}" {{ isset($request) && $request->statuskadar == $i ? 'selected' : '' }}>{{ $i }}</option>
-                  @endfor --}}
-                  {{-- <option value="01012011">Semua</option>
-                  @for ($i=1; $i <= 'kadars'; $i++)
-                  <option value="{{ $i }}" {{ isset($request) && $request->statuskadar == $i ? 'selected' : '' }}>{{ $i }}</option>
-                  @endfor --}}
+                  <option value="1" {{ isset($request) && $request->Kadar == '1' ? 'selected' : '' }}>Tidak Aman</option>
+                  <option value="0" {{ isset($request) && $request->Kadar == '0' ? 'selected' : '' }}>Aman</option>
                 </select>
               </div>
               <div style="padding-top:25px">

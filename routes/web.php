@@ -19,4 +19,9 @@ Route::GET('/statistik', 'MonitoringController@Chart');
 
 Route::GET('update/{Kadar}', 'MonitoringController@Update');
 
+Route::GET('/admin', 'UserControllerController@Now');
+
 Route::POST('/table', 'MonitoringController@FilterData');
+
+  // Route::GET('data-parkir', 'UserController@DataParkir')->name('Data-Parkir');
+  // Route::POST('data-parkir', 'UserController@FilterDataParkir')->name('Filter-Data-Parkir');

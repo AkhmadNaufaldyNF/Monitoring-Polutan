@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Monitoring;
+
+use Carbon\Carbon;
+
 
 class UserController extends Controller
 {
@@ -16,4 +20,5 @@ class UserController extends Controller
 	{
 		return view('table.table');
 	}		
+
 }
