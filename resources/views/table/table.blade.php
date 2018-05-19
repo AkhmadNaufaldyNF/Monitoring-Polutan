@@ -26,10 +26,10 @@
               </div>
               <div class="col-md-2 text-center">
                 <label>Status</label>
-                <select class="form-control" name="Kadar">
+                <select class="form-control" name="monitoring">
                   <option value="status">Semua</option>
-                  <option value="1" {{ isset($request) && $request->Kadar == '1' ? 'selected' : '' }}>Tidak Aman</option>
-                  <option value="0" {{ isset($request) && $request->Kadar == '0' ? 'selected' : '' }}>Aman</option>
+                  <option value="0" {{ isset($request) && $request->monitoring == '0' ? 'selected' : '' }}>Tidak Aman</option>
+                  <option value="1" {{ isset($request) && $request->monitoring == '1' ? 'selected' : '' }}>Aman</option>
                 </select>
               </div>
               <div style="padding-top:25px">

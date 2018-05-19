@@ -14,7 +14,7 @@ class MonitoringController extends Controller
 	public function Index()
 	{
 		$monitoring = Monitoring::all();
-		return view('table.table') -> with('monitoring',$monitoring);
+		return view('table.table', ['monitoring' => $monitoring]);
 	}
 
 	public function update($Kadar)
@@ -34,28 +34,18 @@ class MonitoringController extends Controller
 	}
 
 	public function FilterData(Request $request){
-
 		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
-								->whereDate('created_at', '<=', $request->tanggalakhir);
+		->whereDate('created_at', '<=', $request->tanggalakhir);
 
-		if ($request->statuskadar != 'status') {
-			$monitoring = $monitoring->where('kadars', $request->statuskadar);
-		}		
-
-		// dd ($monitoring);
+		if ($request->monitoring != 'status') {	
+			if ($request->monitoring == '0'){
+				$monitoring = $monitoring->where('kadars', '>=', 1500);
+			}
+			if ($request->monitoring == '1'){
+				$monitoring = $monitoring->where('kadars', '<', 1500);
+			}
+		}
 		return  view('table.table', ['monitoring' => $monitoring->get(), 'request' => $request]);
 	}
 
-
-		// if ($request->)		
-
-	// 	// if ($request->statuskadar != '01012011') {
-	// 	// 	$Filter = $Filter->where('status', $request->statuskadar);
-	// 	// }
-	// 	// // if ($request->statusparkir != '01012011') {
-	// 	// // 	$Filter = $Filter->where('status', $request->statusparkir);
-	// 	// // }
-	// 	// $Kadar = $Filter->max('id');
-	// 	return view('table.table', ['data' => $Filter->get(), 'request' => $request]);
-	// }
 }
