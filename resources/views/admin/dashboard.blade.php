@@ -18,8 +18,15 @@
             <li>asda</li>
           </div>
           <div class="content-custom">
-            <h2 class="text-h1">KADAR CO2 : .......PPM</h2>
-            <h2 class="text-h1">STATUS : ........</h2>
+            @isset ($data)
+              <h2 class="text-h1">KADAR CO2 : {{$data -> kadars}} PPM</h2>
+              <h2 class="text-h1">STATUS : 
+                @if ($data -> kadars>=1500)
+                    Tidak Aman
+                 @else
+                    Aman
+                @endif</h2>
+            @endisset
             <div class="lok">
               <h4><i class="fa fa-map-marker"></i>&nbsp;<b>Lokasi Penelitian 1</b></h4>
               <h4><i class="fa fa-map-marker"></i>&nbsp;<b>Lokasi Penelitian 2</b></h4>              

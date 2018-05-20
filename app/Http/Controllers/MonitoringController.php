@@ -37,7 +37,8 @@ class MonitoringController extends Controller
 		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
 		->whereDate('created_at', '<=', $request->tanggalakhir);
 
-		if ($request->monitoring != 'status') {	
+		if ($request->monitoring != 'status')
+		{	
 			if ($request->monitoring == '0'){
 				$monitoring = $monitoring->where('kadars', '>=', 1500);
 			}
@@ -46,6 +47,12 @@ class MonitoringController extends Controller
 			}
 		}
 		return  view('table.table', ['monitoring' => $monitoring->get(), 'request' => $request]);
+	}
+
+	public function New()
+	{
+		$monitoring = Monitoring::all() -> last();
+		return view('admin.dashboard', ['data' => $monitoring]);
 	}
 
 }
