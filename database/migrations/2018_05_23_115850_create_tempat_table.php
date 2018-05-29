@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMonitoringsTable extends Migration
+class CreateTempatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateMonitoringsTable extends Migration
      */
     public function up()
     {
-        Schema::create('monitorings', function (Blueprint $table) {
+        Schema::create('tempat', function (Blueprint $table) {
             $table->increments('id');
-            $table->Integer('kadars');
-            $table->tinyInteger('status');
+            $table->string('tempat');
             $table->timestamps();
         });
     }
@@ -28,6 +27,6 @@ class CreateMonitoringsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('monitorings');
+        Schema::dropIfExists('tempat');
     }
 }

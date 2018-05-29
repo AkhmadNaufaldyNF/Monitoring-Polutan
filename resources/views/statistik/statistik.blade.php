@@ -9,7 +9,7 @@
       STATISTIK MONITORING POLUSI UDARA
     </h1>
   </section>
-  <section class="content">
+  <section class="content custom-content">
     <div class="row row-custom">
       <section class="col-lg-10 col-lg-offset-1 connectedSortable">
         <canvas id="chartku"></canvas>
@@ -24,7 +24,7 @@
 <script>
   var ctx = document.getElementById("chartku").getContext('2d');
   var chartku = new Chart(ctx, {
-    type: 'horizontalBar',
+    type: 'bar',
     data: {
       labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [{
@@ -35,18 +35,18 @@
         @endforeach
         ],
         backgroundColor: [
-        '#FC3C3C',
-        '#E3E637',
         '#97E637',
-        '#3786E6',  
-        '#A937E6',
-        '#E63760',
-        '#D98211',
-        '#062743',
-        '#7dc383',
-        '#ffdd7e',
-        '#294a66',
-        '#2BA59F'
+        '#97E637',
+        '#97E637',
+        '#97E637',  
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637'
         ],
         borderWidth: 1
       }]

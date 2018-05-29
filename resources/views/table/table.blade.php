@@ -9,7 +9,7 @@
     </h1>
   </section>
 
-  <section class="content">
+  <section class="content custom-content">
     <div class="row">
       <div class="col-xs-12">
         <div class="box">
@@ -28,8 +28,9 @@
                 <label>Status</label>
                 <select class="form-control" name="monitoring">
                   <option value="status">Semua</option>
-                  <option value="0" {{ isset($request) && $request->monitoring == '0' ? 'selected' : '' }}>Tidak Aman</option>
-                  <option value="1" {{ isset($request) && $request->monitoring == '1' ? 'selected' : '' }}>Aman</option>
+                  <option value="0" {{ isset($request) && $request->monitoring == '0' ? 'selected' : '' }}>Baik</option>
+                  <option value="1" {{ isset($request) && $request->monitoring == '1' ? 'selected' : '' }}>Sedang</option>
+                  <option value="2" {{ isset($request) && $request->monitoring == '2' ? 'selected' : '' }}>TIdak Baik</option>
                 </select>
               </div>
               <div style="padding-top:25px">
@@ -58,14 +59,16 @@
                   <td>{{ $indexKey+1 }}</td>
                   <td>{{ $Monitoring -> kadars }}</td>
                   <td>
-                    @if ($Monitoring -> kadars>=1500)
-                    Tidak Aman
+                    @if ($Monitoring -> kadars<=450)
+                    Baik
+                    @elseif($Monitoring -> kadars<1000)
+                    Sedang
                     @else
-                    Aman
+                    Tidak Baik
                     @endif
                   </td>
                   <td>{{ Waktu::tanggal($Monitoring -> created_at) }}</td>
-                  <td>{{ Waktu::jam ($Monitoring -> created_at)}}</td>
+                  <td>{{ Waktu::jam ($Monitoring -> created_at) }}</td>
                 </tr>
                 @endforeach
               </tbody>
