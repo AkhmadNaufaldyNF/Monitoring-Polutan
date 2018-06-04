@@ -52,11 +52,11 @@
     </script>
 
     <script src="{{url('assets/adminlte/dist/js/chartJs/Chart.min.js')}}"></script>
-    
+        
     @yield('statistik')
-    
-    @yield('statistik2')
 
+    {{-- @yield('statistik')     --}}
+    
     <script src="{{url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{url('assets/adminlte/bower_components/raphael/raphael.min.js')}}"></script>
     <script src="{{url('assets/adminlte/bower_components/morris.js/morris.min.js')}}"></script>

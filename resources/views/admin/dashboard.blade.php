@@ -2,71 +2,91 @@
 
 @section('content')
 
-<script src="{{url('assets/adminlte/dist/js/chartJs/Chart.min.js')}}"></script>
-
 <div class="content-wrapper">
+  <section class="content-header">
+    <h1>
+      SISTEM MONITORING POLUSI UDARA
+    </h1>
+  </section>
   <section class="content custom-content">
-    <div class="row">
-      <section class="col-lg-5 col-lg-offset-1 connectedSortable">
-        <div class="nav-tabs-custom box1">
-          <ul class="nav nav-tabs tab-content head-box1 text-center text-box">
-            <h4><b>MONITORING</b></h4>
-          </ul>
-          <div class="content-custom">
-            @isset ($data)
-            <h2 class="text-h2">KADAR CO<sub>2</sub> : {{$data -> kadars}} PPM</h2>
-            <h2 class="text-h2">STATUS : 
-              @if ($data -> kadars<=450)
-              BAIK
-              @elseif ($data -> kadars<1000)
-              SEDANG
-              @else
-              TIDAK BAIK
-            @endif</h2>
-            @endisset
-          </div>                                                                                           
-        </section>
-        <section class="col-lg-5 connectedSortable">
+    <div class="box box-info">
+      <div class="box-body">
+        <section class="col-lg-3 connectedSortable">
           <div class="nav-tabs-custom box2">
             <ul class="nav nav-tabs tab-content head-box2 text-center text-box">
               <h4><b>LEVEL NORMAL CO<sub>2</sub></b></h4>
             </ul>
             <div class="content-custom">
-              <h2 class="text-h2">BAIK : 350-450 PPM</h2>
-              <h2 class="text-h2">SEDANG : < 1000 PPM</h2>
-              <h2 class="text-h2">TIDAK BAIK : >=  1000 PPM</h2>
-            </div>                                                                                           
-          </section>
-          <section class="col-lg-10 col-lg-offset-1 connectedSortable">
-           <div class="nav-tabs-custom box3">
-            <ul class="nav nav-tabs tab-content head-box2 text-center text-box">
-              <h4><b>LEVEL NORMAL CO<sub>2</sub></b></h4>
-            </ul>
-              <canvas id="chart1"></canvas>
-          </div>
+              <li class="custom-li"><h5><b>BAIK : 350-450 PPM</h5></li>
+              <li class="custom-li"><h5><b>SEDANG : < 1000 PPM</h5></li>
+              <li class="custom-li"><h5><b>TIDAK BAIK : >=  1000 PPM</h5></li>
+            </div>
+          </div>                                                                                           
         </section>
-      </div> 
+        <section class="col-lg-5 col-lg-offset-1 connectedSortable">
+          <div class="nav-tabs-custom box1">
+            <ul class="nav nav-tabs tab-content head-box1 text-center text-box">
+              <h4><b>MONITORING</b></h4>
+            </ul>
+            <div class="content-custom">
+              @isset ($data)
+              <h2 class="text-h2">TANGGAL : {{ Waktu::tanggal($data -> created_at) }}</h2>
+              <h2 class="text-h2">KADAR CO<sub>2</sub> : {{ $data -> kadars }} PPM</h2>
+              <h2 class="text-h2">STATUS : 
+                @if ($data -> kadars<=450)
+                BAIK
+                @elseif ($data -> kadars<1000)
+                SEDANG
+                @else
+                TIDAK BAIK
+              @endif</h2>
+              @endisset
+            </div>
+          </div>                                                                                           
+        </section>
+      </div>
+    </div>
+    <div class="box box-success">
+      <div class="box-header with-border">
+        <h3 class="box-title">STATISTIK MONITORING POLUSI UDARA</h3>
+      </div>
+      <div class="box-body">
+        <div class="chart">
+          <canvas id="chartku"></canvas>      
+        </div>
+      </div>
     </div>
   </section>
 </div>
 @endsection
 
-{{-- @section('statistik2')
+@section('statistik')
 
 <script>
-  var ctx = document.getElementById("chart1").getContext('2d');
-  var chart1 = new Chart(ctx, {
-    type: 'horizontalBar',
+  var ctx = document.getElementById("chartku").getContext('2d');
+  var chartku = new Chart(ctx, {
+    type: 'bar',
     data: {
-      labels: ["Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu", "Minggu"],
+      labels: ["Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember"],
       datasets: [{
-        label: 'RATA-RATA DATA PER MINGGU',
+        label: 'RATA-RATA DATA PER BULAN',
         data: [
         @foreach ($data as $datas)
         {{$datas}},
         @endforeach
         ],
         backgroundColor: [
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',  
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
+        '#97E637',
         '#97E637'
         ],
         borderWidth: 1
@@ -84,4 +104,4 @@
   });
 </script>
 
-@endsection --}}
+@endsection

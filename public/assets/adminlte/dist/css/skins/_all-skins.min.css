@@ -17,7 +17,7 @@
 .skin-blue .main-header .logo{background-color:#64a36f;color:#fff;border-bottom:0 solid transparent}
 .skin-blue .main-header .logo:hover{background-color:#847f7f}
 .skin-blue .main-header li.user-header{background-color:#3c8dbc}
-.skin-blue .content-header{background:transparent}
+/*.skin-blue .content-header{}*/
 .skin-blue .wrapper,.skin-blue .main-sidebar,.skin-blue .left-side{background-color:#222d32}
 .skin-blue .user-panel>.info,.skin-blue .user-panel>.info>a{color:#fff}
 .skin-blue .sidebar-menu>li.header{color:#4b646f;background:#1a2226}

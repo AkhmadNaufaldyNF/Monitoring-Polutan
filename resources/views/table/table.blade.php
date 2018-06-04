@@ -5,7 +5,7 @@
 <div class="content-wrapper">
   <section class="content-header">
     <h1>
-      Data Tables
+      DATA MONITORING
     </h1>
   </section>
 
@@ -23,6 +23,14 @@
               <div class="col-md-2 text-center">
                 <label>Tanggal Terakhir</label>
                 <input type="date" name="tanggalakhir" value="" class="form-control form-control-h34px">
+              </div>
+              <div class="col-md-2 text-center text-center">
+                <label>Waktu Pertama</label>
+                <input type="time" name="waktuawal" value="" class="form-control form-control-h34px">
+              </div>
+              <div class="col-md-2 text-center text-center">
+                <label>Waktu Akhir</label>
+                <input type="time" name="waktuakhir" value="" class="form-control form-control-h34px">
               </div>
               <div class="col-md-2 text-center">
                 <label>Status</label>

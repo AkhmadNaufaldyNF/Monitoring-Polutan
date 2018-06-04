@@ -35,8 +35,8 @@ class MonitoringController extends Controller
 
 	// public function Chart2()
 	// {
-	// 	for ($i=1; $i <= 7 ; $i++){
-	// 		$chart[$i] = Monitoring::whereDate('created_at', $i)
+	// 	for ($i=1; $i <= 12 ; $i++){
+	// 		$chart[$i] = Monitoring::whereMonth('created_at', $i)
 	// 		->avg('kadars');
 	// 	}		
 	// 	return view('admin.dashboard', ['data' => $chart]);
@@ -44,7 +44,9 @@ class MonitoringController extends Controller
 
 	public function FilterData(Request $request){
 		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
-		->whereDate('created_at', '<=', $request->tanggalakhir);
+			->whereDate('created_at', '<=', $request->tanggalakhir)
+			->whereTime('created_at', '>=', $request->waktuawal)
+			->whereTime('created_at', '<=', $request->waktuakhir);
 
 		if ($request->monitoring != 'status')
 		{	
