@@ -16,23 +16,23 @@
           <div class="box-header">
             <form action="" method="post">
               {{ csrf_field() }}
-              <div class="col-md-2 text-center text-center">
+              <div class="col-md-2 text-center custom-filter">
                 <label>Tanggal Pertama</label>
                 <input type="date" name="tanggalawal" value="" class="form-control form-control-h34px">
               </div>
-              <div class="col-md-2 text-center">
+              <div class="col-md-2 text-center custom-filter">
                 <label>Tanggal Terakhir</label>
                 <input type="date" name="tanggalakhir" value="" class="form-control form-control-h34px">
               </div>
-              <div class="col-md-2 text-center text-center">
+              <div class="col-md-2 text-center custom-filter">
                 <label>Waktu Pertama</label>
                 <input type="time" name="waktuawal" value="" class="form-control form-control-h34px">
               </div>
-              <div class="col-md-2 text-center text-center">
+              <div class="col-md-2 text-center custom-filter">
                 <label>Waktu Akhir</label>
                 <input type="time" name="waktuakhir" value="" class="form-control form-control-h34px">
               </div>
-              <div class="col-md-2 text-center">
+              <div class="col-md-2 text-center custom-filter">
                 <label>Status</label>
                 <select class="form-control" name="monitoring">
                   <option value="status">Semua</option>
@@ -41,11 +41,21 @@
                   <option value="2" {{ isset($request) && $request->monitoring == '2' ? 'selected' : '' }}>TIdak Baik</option>
                 </select>
               </div>
-              <div style="padding-top:25px">
+              <div class="custom-button-filter">
                 <div class="col-md-2 text-center">
                   <button type="submit" class="btn btn-primary">
                     <span class="fa fa-search"></span> | Filter
                   </button>
+                </div>
+              </div>
+              <div class="custom-button-print">
+                <div class="col-md-2 text-center">
+                  <a href="/print" class="btn btn-info">
+                    <span class="fa fa-print"></span> | Cetak
+                  </a>
+                  {{-- <button type="submit" class="btn btn-info">
+                    <span class="fa fa-print"></span> | Cetak
+                  </button> --}}
                 </div>
               </div>
             </form>

@@ -9,6 +9,8 @@ use Carbon\Carbon;
 
 use Waktu;
 
+use PDF;
+
 class MonitoringController extends Controller
 {
 	public function Index()
@@ -33,20 +35,11 @@ class MonitoringController extends Controller
 		return view('statistik.statistik', ['data' => $chart]);
 	}
 
-	// public function Chart2()
-	// {
-	// 	for ($i=1; $i <= 12 ; $i++){
-	// 		$chart[$i] = Monitoring::whereMonth('created_at', $i)
-	// 		->avg('kadars');
-	// 	}		
-	// 	return view('admin.dashboard', ['data' => $chart]);
-	// }
-
 	public function FilterData(Request $request){
 		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
-			->whereDate('created_at', '<=', $request->tanggalakhir)
-			->whereTime('created_at', '>=', $request->waktuawal)
-			->whereTime('created_at', '<=', $request->waktuakhir);
+		->whereDate('created_at', '<=', $request->tanggalakhir)
+		->whereTime('created_at', '>=', $request->waktuawal)
+		->whereTime('created_at', '<=', $request->waktuakhir);
 
 		if ($request->monitoring != 'status')
 		{	
@@ -71,4 +64,30 @@ class MonitoringController extends Controller
 		return view('admin.dashboard', ['data' => $monitoring]);
 	}
 
+	public function PrintLaporan()
+	{
+		$monitoring = Monitoring::all();
+
+		// $monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
+		// ->whereDate('created_at', '<=', $request->tanggalakhir)
+		// ->whereTime('created_at', '>=', $request->waktuawal)
+		// ->whereTime('created_at', '<=', $request->waktuakhir);
+
+		// if ($request->monitoring != 'status')
+		// {	
+		// 	if ($request->monitoring == '0'){
+		// 		$monitoring = $monitoring->where('kadars', '<', 451);
+		// 	}
+		// 	if ($request->monitoring == '1'){
+		// 		$monitoring = $monitoring
+		// 		->where('kadars', '>=', 451)
+		// 		->where('kadars', '<', 1000);
+		// 	}
+		// 	if ($request->monitoring == '2'){
+		// 		$monitoring = $monitoring->where('kadars', '>=', 1000);
+		// 	}	
+		// }
+		$pdf = PDF::loadview('print.PrintDataMonitoring', ['monitoring' => $monitoring]);
+		return $pdf->stream();
+	}
 }

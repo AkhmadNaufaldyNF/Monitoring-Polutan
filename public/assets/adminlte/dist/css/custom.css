@@ -76,3 +76,18 @@
 	color: white; 
 	text-align: center;
 }
+
+.custom-filter{
+	margin-right: -10px;
+	margin-left: -10px;
+}
+
+.custom-button-filter{
+	padding-top: 25px;
+	float: left;
+}
+
+.custom-button-print{
+	padding-top: 25px;
+	float: right;
+}

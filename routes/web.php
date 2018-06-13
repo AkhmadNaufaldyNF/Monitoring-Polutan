@@ -24,3 +24,5 @@ Route::GET('update/{Kadar}', 'MonitoringController@Update');
 Route::GET('/', 'MonitoringController@New');
 
 Route::POST('/table', 'MonitoringController@FilterData');
+
+Route::GET('/print', 'MonitoringController@PrintLaporan');
