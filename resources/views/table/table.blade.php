@@ -18,19 +18,19 @@
               {{ csrf_field() }}
               <div class="col-md-2 text-center custom-filter">
                 <label>Tanggal Pertama</label>
-                <input type="date" name="tanggalawal" value="" class="form-control form-control-h34px">
+                <input type="date" name="tanggalawal" value="{{ isset($request) ? $request->tanggalawal : '01-01-2018' }}" class="form-control form-control-h34px">
               </div>
               <div class="col-md-2 text-center custom-filter">
                 <label>Tanggal Terakhir</label>
-                <input type="date" name="tanggalakhir" value="" class="form-control form-control-h34px">
+                <input type="date" name="tanggalakhir" value="{{ isset($request) ? $request->tanggalakhir : Waktu::TanggalSekarang() }}" class="form-control form-control-h34px">
               </div>
               <div class="col-md-2 text-center custom-filter">
                 <label>Waktu Pertama</label>
-                <input type="time" name="waktuawal" value="" class="form-control form-control-h34px">
+                <input type="time" name="waktuawal" value="{{ isset($request) ? $request->waktuawal : '00:00 AM' }}" class="form-control form-control-h34px">
               </div>
               <div class="col-md-2 text-center custom-filter">
                 <label>Waktu Akhir</label>
-                <input type="time" name="waktuakhir" value="" class="form-control form-control-h34px">
+                <input type="time" name="waktuakhir" value="{{isset($request) ? $request->waktuakhir : Waktu::WaktuSekarang()}}" class="form-control form-control-h34px">
               </div>
               <div class="col-md-2 text-center custom-filter">
                 <label>Status</label>
@@ -50,12 +50,9 @@
               </div>
               <div class="custom-button-print">
                 <div class="col-md-2 text-center">
-                  <a href="/print" class="btn btn-info">
+                  <a href="{{ Route('Print-Data', ['tanggalawal' => isset($request) ? $request->tanggalawal : '01-01-2018', 'tanggalakhir' => isset($request) ? $request->tanggalakhir : Waktu::TanggalSekarang(), 'waktuawal' => isset($request) ? $request->waktuawal : '00:00 AM', 'waktuakhir' => isset($request) ? $request->waktuakhir : Waktu::WaktuSekarang(), 'status' => isset($request) ? $request->monitoring : 'Semua'])}}" class="btn btn-info">
                     <span class="fa fa-print"></span> | Cetak
                   </a>
-                  {{-- <button type="submit" class="btn btn-info">
-                    <span class="fa fa-print"></span> | Cetak
-                  </button> --}}
                 </div>
               </div>
             </form>

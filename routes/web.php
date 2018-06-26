@@ -25,4 +25,4 @@ Route::GET('/', 'MonitoringController@New');
 
 Route::POST('/table', 'MonitoringController@FilterData');
 
-Route::GET('/print', 'MonitoringController@PrintLaporan');
+Route::GET('/print/{tanggalawal}/{tanggalakhir}/{waktuawal}/{waktuakhir}/{status}', 'MonitoringController@PrintLaporan')->name('Print-Data');
