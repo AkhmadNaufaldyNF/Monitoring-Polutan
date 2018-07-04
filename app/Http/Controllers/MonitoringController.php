@@ -66,8 +66,6 @@ class MonitoringController extends Controller
 
 	public function PrintLaporan($tanggalawal, $tanggalakhir, $waktuawal, $waktuakhir, $status)
 	{
-		// $monitoring = Monitoring::all();
-
 		$monitoring = Monitoring::whereDate('created_at', '>=', $tanggalawal)
 			->whereDate('created_at', '<=', $tanggalakhir)
 			->whereTime('created_at', '>=', $waktuawal)

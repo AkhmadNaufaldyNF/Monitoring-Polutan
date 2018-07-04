@@ -22,6 +22,7 @@
   <div class="text-center">
     <h1>Laporan Data Monitoring</h1>
   </div>
+  <div style="font-size: 14px;">Lokasi : Jl. A. Yani, Depan Taman Van Der Pijl, Kota Banjarbaru</div>
   <hr style="margin-bottom: 15px">
   <table class="table">
     <thead class="thead-light">
@@ -47,8 +48,8 @@
         Tidak Baik
         @endif
       </td>
-      <td>{{ Waktu::tanggal($Monitoring -> created_at) }}</td>
-      <td>{{ Waktu::jam ($Monitoring -> created_at) }}</td>
+      <td class="text-center">{{ Waktu::tanggal($Monitoring -> created_at) }}</td>
+      <td class="text-center">{{ Waktu::jam ($Monitoring -> created_at) }}</td>
     </tr>
     @endforeach
 

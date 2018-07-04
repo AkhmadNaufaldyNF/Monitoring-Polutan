@@ -31,6 +31,7 @@
             <div class="content-custom">
               @isset ($data)
               <h2 class="text-h2">TANGGAL : {{ Waktu::tanggal($data -> created_at) }}</h2>
+              <h2 class="text-h2">JAM : {{ Waktu::jam($data -> created_at) }}</h2>
               <h2 class="text-h2">KADAR CO<sub>2</sub> : {{ $data -> kadars }} PPM</h2>
               <h2 class="text-h2">STATUS : 
                 @if ($data -> kadars<=450)
