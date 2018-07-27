@@ -17,7 +17,7 @@
               <h4><b>LEVEL NORMAL CO<sub>2</sub></b></h4>
             </ul>
             <div class="content-custom">
-              <h5 class="text-h5"><b>BAIK : 350-450 PPM</h5>
+              <h5 class="text-h5"><b>BAIK : 0-450 PPM</h5>
               <h5 class="text-h5"><b>SEDANG : < 1000 PPM</h5>
               <h5 class="text-h5"><b>TIDAK BAIK : >=  1000 PPM</h5>
             </div>
