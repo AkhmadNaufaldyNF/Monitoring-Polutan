@@ -17,7 +17,7 @@ Route::GET('/table', 'MonitoringController@Index');
 
 Route::GET('/statistik', 'MonitoringController@Chart');
 
-// Route::GET('/', 'MonitoringController@Chart2');
+// Route::GET('/', 'MonitoringController@Chart');
 
 Route::GET('update/{Kadar}', 'MonitoringController@Update');
 
@@ -26,3 +26,11 @@ Route::GET('/', 'MonitoringController@New');
 Route::POST('/table', 'MonitoringController@FilterData');
 
 Route::GET('/print/{tanggalawal}/{tanggalakhir}/{waktuawal}/{waktuakhir}/{status}', 'MonitoringController@PrintLaporan')->name('Print-Data');
+
+// Route::resource('crud', 'CRUDController');
+
+Route::GET('/crud', 'CRUDController@create')->name('crud-tambah');
+
+Route::POST('/crud', 'CRUDController@store');
+
+// Route::GET('/crud', 'CRUDController@create')->name('crud.store'	);

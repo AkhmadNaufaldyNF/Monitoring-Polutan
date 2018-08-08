@@ -39,6 +39,7 @@
             <li><a href="/"><i class="fa fa-book"></i> <span>Dashboard</span></a></li>
             <li><a href="/statistik"><i class="fa fa-bar-chart"></i> <span>Chart</span></a></li>
             <li><a href="/table"><i class="fa fa-table"></i> <span>Table</span></a></li>
+            {{-- <li><a href="/crud"><i class="fa fa-table"></i> <span>CRUD</span></a></li> --}}
           </ul>
         </section>
       </aside>
@@ -53,9 +54,9 @@
 
     <script src="{{url('assets/adminlte/dist/js/chartJs/Chart.min.js')}}"></script>
         
-    @yield('statistik')
+    {{-- @yield('statistik2')     --}}
 
-    {{-- @yield('statistik')     --}}
+    @yield('statistik')
     
     <script src="{{url('assets/adminlte/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
     <script src="{{url('assets/adminlte/bower_components/raphael/raphael.min.js')}}"></script>

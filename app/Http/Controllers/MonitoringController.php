@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 
 use Carbon\Carbon;
 
+// use App\Post;
+
 use Waktu;
 
 use PDF;
@@ -34,6 +36,7 @@ class MonitoringController extends Controller
 		}		
 		return view('statistik.statistik', ['data' => $chart]);
 	}
+
 
 	public function FilterData(Request $request){
 		$monitoring = Monitoring::whereDate('created_at', '>=', $request->tanggalawal)
@@ -67,9 +70,9 @@ class MonitoringController extends Controller
 	public function PrintLaporan($tanggalawal, $tanggalakhir, $waktuawal, $waktuakhir, $status)
 	{
 		$monitoring = Monitoring::whereDate('created_at', '>=', $tanggalawal)
-			->whereDate('created_at', '<=', $tanggalakhir)
-			->whereTime('created_at', '>=', $waktuawal)
-			->whereTime('created_at', '<=', $waktuakhir);
+		->whereDate('created_at', '<=', $tanggalakhir)
+		->whereTime('created_at', '>=', $waktuawal)
+		->whereTime('created_at', '<=', $waktuakhir);
 
 		if ($status != 'status')
 		{
